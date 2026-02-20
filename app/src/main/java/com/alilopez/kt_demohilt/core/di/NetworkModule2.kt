@@ -11,12 +11,13 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-object NetworkModule {
+object NetworkModule2 {
     @Provides
     @Singleton
-    fun provideRetrofit(): Retrofit {
+    @MediataskNetworkModule
+    fun provideRetrofit2(): Retrofit {
         return Retrofit.Builder()
-            .baseUrl("https://jsonplaceholder.typicode.com/")
+            .baseUrl("https://api.mediastack.com/v1/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }

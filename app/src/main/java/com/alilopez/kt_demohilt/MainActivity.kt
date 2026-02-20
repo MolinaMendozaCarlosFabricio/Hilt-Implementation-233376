@@ -14,6 +14,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.alilopez.demo.features.jsonplaceholder.presentation.screens.PostsScreen
 import com.alilopez.kt_demohilt.core.ui.theme.AppTheme
 import com.alilopez.kt_demohilt.features.feature01.presentation.HomeScreen
+import com.alilopez.kt_demohilt.features.news.presentation.screens.NewsScreen
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -23,7 +24,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             AppTheme {
-                PostsScreen()
+                NewsScreen()
             }
         }
     }
