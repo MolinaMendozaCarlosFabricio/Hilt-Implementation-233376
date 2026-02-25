@@ -12,19 +12,26 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.alilopez.demo.features.jsonplaceholder.presentation.screens.PostsScreen
+import com.alilopez.kt_demohilt.core.navigation.FeatureNavGraph
+import com.alilopez.kt_demohilt.core.navigation.NavigationWrapper
 import com.alilopez.kt_demohilt.core.ui.theme.AppTheme
 import com.alilopez.kt_demohilt.features.feature01.presentation.HomeScreen
 import com.alilopez.kt_demohilt.features.news.presentation.screens.NewsScreen
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+
+    @Inject
+    lateinit var navGraphs: Set<@JvmSuppressWildcards FeatureNavGraph>
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
             AppTheme {
-                NewsScreen()
+                NavigationWrapper(navGraphs)
             }
         }
     }
